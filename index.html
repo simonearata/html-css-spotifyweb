@@ -24,11 +24,12 @@
       <!-- NAV -->
       <div class="nav-left">
         <div class="contenitore-img">
-          <img src="assets/img/logo.svg" alt="logo spotify">
+          <img class="xs-none" src="assets/img/logo.svg" alt="logo spotify">
+          <img class="xs-visibility" src="assets/img/logo-small.svg" alt="">
         </div>
         
         <!-- "HOME", "CERCA" E "LA TUA LIBRERIA" -->
-        <ul class="list-inline">
+        <ul class="list-inline green-left text-white">
           <li class="lateral-loghi">
             <img src="assets/img/home.svg" alt="home">
             <a href="#">Home</a></li>
@@ -41,7 +42,7 @@
         </ul>
 
         <!-- PLAYLIST -->
-        <div class="padding-left20 margin-top20">
+        <div class="play-list padding-left20 margin-top20">
           <h5>playlist</h5>
         
           <p class="crea-playlist">
@@ -50,29 +51,31 @@
             </a>
           </p>
           
-          <ul class="list-playlist">
-            <li>
-              <a href="#">Nome Playlist</a>
-            </li>
-            <li>
-              <a href="#">Nome Playlist</a>
-            </li>
-            <li>
-              <a href="#">Nome Playlist</a>
-            </li>
-            <li>
-              <a href="#">Nome Playlist</a>
-            </li>
-            <li>
-              <a href="#">Nome Playlist</a>
-            </li>
-            <li>
-              <a href="#">Nome Playlist</a>
-            </li>
-            <li>
-              <a href="#">Nome Playlist</a>
-            </li>
-          </ul>
+          <div class="overflw">
+            <ul class="list-playlist text-white">
+              <li>
+                <a href="#">Nome Playlist</a>
+              </li>
+              <li>
+                <a href="#">Nome Playlist</a>
+              </li>
+              <li>
+                <a href="#">Nome Playlist</a>
+              </li>
+              <li>
+                <a href="#">Nome Playlist</a>
+              </li>
+              <li>
+                <a href="#">Nome Playlist</a>
+              </li>
+              <li>
+                <a href="#">Nome Playlist</a>
+              </li>
+              <li>
+                <a href="#">Nome Playlist</a>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <!-- NAV PARTE BASSA -->
@@ -112,7 +115,7 @@
         <!-- BLOCCO RECENTLY PLAYED -->
         <div class="recently-played padding-left20 margin-top20">
           <h3>Recently played</h3>
-          <div class="blocco">
+          <div class="blocco no-margin-left">
             <img src="assets/img/metal_lifting.jpg" alt="metal_lifting">
             <h4>Heavy Metal</h4>
           </div>
@@ -139,15 +142,31 @@
         </div>
 
         <!-- CREATO PER JOHN DOE -->
-        <div class="creato-john">
+        <div class="creato-john padding-left20">
           <h3>Creato per John Doe</h3>
           <p>Più ascolti, più accurati saranno i suggeriti</p>
+          <div class="blocco no-margin-left">
+            <img src="assets/img/radar.jpeg" alt="metal_lifting">
+            <h4>Releases Rader</h4>
+          </div>
+          <div class="blocco">
+            <img src="assets/img/mixdaily.jpeg" alt="metal_lifting">
+            <h4>Daily Mix 1</h4>
+          </div>
         </div>
         
         <!-- ARTISTI PIù POPOLARI -->
-        <div class="artisti-vip">
+        <div class="artisti-vip padding-left20">
           <h3>Artisti più popolari</h3>
           <p>Più ascolti, più accurati saranno i suggeriti</p>
+          <div class="blocco bordo-rotondo no-margin-left">
+            <img src="assets/img/youg.jpeg" alt="metal_lifting">
+            <h4>Daily Mix 1</h4>
+          </div>
+          <div class="blocco bordo-rotondo">
+            <img src="assets/img/einaudi.jpeg" alt="metal_lifting">
+            <h4>Daily Mix 1</h4>
+          </div>
         </div>
       </section>
 
@@ -160,8 +179,39 @@
 
       
       <section>
-        
-      </ction>
+        <div class="footer-down">
+          <!-- COLONNA DI SINISTRA -->
+          <div class="col-left">
+            <img src="assets/img/sinister.jpeg" alt="">
+            <p>Sinister<br>
+              <span>Brano Nome</span>
+            </p>
+            <i class="far fa-heart"></i>
+            <i class="far fa-folder"></i>
+          </div>
+
+          <!-- COLONNA DI CENTRO -->
+          <div class="col-center">
+            <ul class="list-inline">
+              <li><i class="fas fa-random"></i></li>
+              <li><i class="fas fa-caret-left"></i></li>
+              <li><i class="far fa-play-circle"></i></li>
+              <li><i class="fas fa-caret-right"></i></li>
+              <li><i class="fas fa-redo-alt"></i></li>
+            </ul>
+            <div class="bar-time"></div>
+          </div>
+
+          <!-- COLONNA DI DESTRA -->
+          <div class="col-right">
+            <ul class="list-inline">
+              <li><i class="fas fa-list"></i></li>
+              <li><i class="fas fa-tv"></i></li>
+              <li><i class="fas fa-volume-up"></i></li>
+            </ul>
+          </div>
+        </div>
+      </section>
       
 
     </footer>
