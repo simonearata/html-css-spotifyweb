@@ -22,19 +22,35 @@ main::after{
 }
 
 .list-inline li{
-  padding: 0 10px;
+  padding: 0 20px;
   list-style: none;
-  margin: 15px 0;
 }
 
 li a{
   text-decoration: none;
+  padding-left: 3px;
+  color: #606060;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.list-inline li:hover{
+  color: white;
+  border-left: 3px solid #affc39;
+}
+
+.margin-top20{
+  margin-top: 20px;
+}
+
+.padding-left20{
+  padding-left: 20px;
 }
 
 /* MAIN */
 main{
   height: calc(100vh - 80px);
-  background-color: salmon;
+  background-color: #151922;
 }
 
 /* NAV DI SINISTRA */
@@ -43,8 +59,7 @@ main{
   height: 100%;
   width: 230px;
   background-color: black;
-  float: left;
-  padding-left: 20px;
+  position: relative;
 }
 
 .contenitore-img{
@@ -61,7 +76,98 @@ main{
   transform: translate(-50%, -50%);
 }
 
-/* SEZIONE CONTENUTO */
+/* "HOME", "CERCA" E "LA TUA LIBRERIA" */
+.lateral-loghi{
+  height: 38px;
+  line-height: 35px
+}
+
+.lateral-loghi img{
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.nav-left h5{
+  color: white;
+  text-transform: uppercase;
+}
+
+/* PLAYLIST */
+.crea-playlist{
+  margin: 10px 0;
+}
+
+.crea-playlist a{
+  color: #606060;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.crea-playlist a::before{
+  content: '+';
+  color: black;
+  background-color: #a3a3a3;
+  padding: 0px 8px;
+  font-size: 30px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.list-playlist li{
+  margin: 15px 0px;
+}
+
+/* NAV PARTE BASSA */
+.navdown-position{
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 10px;
+}
+
+.nav-down{
+  color: #606060;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.nav-down span::after{
+  content: '';
+  width: 180px;
+  height: 1px;
+  display: inline-block;
+  background-color: #606060;
+}
+ 
+.nav-down span i{
+  font-size: 7px;
+  border: 1px solid #606060;
+  border-radius: 50%;
+  padding: 1px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.profilo{
+  margin-top: 10px;
+}
+
+.profilo img{
+  width: 22px;
+  background-color: #7f7f7e;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.nome-profilo{
+  color: white;
+  font-weight: bold;
+  vertical-align: super;
+}
+
+/* SEZIONE CONTENUTO CENTRALE */
 #contenuto{
   float: left;
   width: calc(100% - 230px);
@@ -69,6 +175,7 @@ main{
   overflow-y: auto;
 }
 
+/* CTA */
 .cta-top{
   height: 80px;
   width: calc(100% - 230px);
@@ -90,10 +197,67 @@ main{
   font-weight:bold
 }
 
+/* LISTA */
+.central-items{
+  margin-top: 80px;
+}
+
+.central-items ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.central-items .list-inline li:hover{
+  border-bottom: 2px solid #affc39;
+  border-left: 0;
+}
+
+.central-items .list-inline li{
+  padding: 0 10px;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+/* BLOCCO RECENTLY PLAYED */
+.recently-played h3{
+  color: white;
+}
+
+.blocco{
+  width: calc(100% / 6 - 19px);
+  text-align: center;
+  display: inline-block;
+  margin-left: 10px;
+  color: white;
+}
+
+.blocco img{
+  margin-top: 30px;
+  width: 100%;
+}
+
+.blocco img{
+  margin-bottom: 12px;
+}
+
+.blocco img:hover{
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* CREATO PER JOHN DOE */
 
 
 /* FOOTER */
 footer{
   height: 80px;
   background-color: darkorange;
+}
+
+
+/* MEDIA QUERY */
+
+@media screen and (max-width: 768px){
+  
+
 }
