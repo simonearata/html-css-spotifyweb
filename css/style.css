@@ -1,0 +1,555 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* MIX */
+body {
+  min-width: 500px;
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(255, 255, 255);
+}
+
+a { 
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.4);
+}
+a:hover,
+a:active,
+a:focus { 
+  color: rgba(255, 255, 255, 1);
+}
+/* controlliamo il colore delle svg inserite come img con opacity */
+a img {
+  opacity: 0.8;
+}
+a:hover img,
+a:active img,
+a:focus img { 
+  opacity: 1;
+}
+a.btn {
+  display: inline-block;
+  padding: 10px 40px;
+  border: 1px solid white;
+  border-radius: 50px;
+  font-size: 12px;
+  line-height: 20px;
+  color: white;
+  text-transform: uppercase;
+}
+a.btn:hover,
+a.btn:active,
+a.btn:focus {
+  transform: scale(1.1);
+}
+
+p {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+}
+.menu-list {
+  list-style: none;
+  font-size: 13px;
+  line-height: 35px;
+}
+
+.menu-inline li{
+  display: inline-block;
+  margin: 10px;
+}
+
+/* creiamo un wrapper che ha la larghezza della viewport,
+ricordiamo che in larghezza se usiamo vw e abbiamo delle scrollbar verticali comparirà la scrollbar orizzontale*/
+#wrapper {
+  width: 100%; 
+  height: 100vh;
+  background: black;
+}
+
+/* MAIN */
+/* il main racchiude anche la navbar, usiamo calc in questo modo la navbar rimarrà sempre fissa in basso */
+main {
+  height: calc(100% - 90px);
+  /* nascondiamo il contenuto in eccesso di main per consentire al footer di coprire la nav in altezze inferiori a 480px */
+  overflow: hidden;
+}
+main:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/* MAIN NAV */
+/* per il layout delle macroaree usiamo float e calc */
+main nav.main-nav {
+  float: left;
+  width: 230px;
+  height: 100%;
+  min-height: 480px;
+}
+@media screen and (max-width: 600px) {
+  main nav.main-nav {
+    width: 50px;
+  }
+}
+main nav.main-nav .nav-top {
+  /* usiamo flex per far calcolare in automatico le altezze */
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 80px);
+  /* overflow ancora una volta ci consente di far sparire il testo in eccesso */
+  overflow-y: hidden;
+}
+main nav.main-nav .nav-top .nav-logo {
+  padding: 20px;
+}
+main nav.main-nav .nav-top .nav-logo img {
+  width: 70%;
+}
+main nav.main-nav .nav-top .nav-logo-mobile {
+  display: none;
+  text-align: center;
+  padding: 5px;
+}
+main nav.main-nav .nav-top .nav-logo-mobile img{
+  width: 70%;
+}
+@media screen and (max-width: 600px) {
+  main nav.main-nav .nav-top .nav-logo {
+    display: none;
+  }
+  main nav.main-nav .nav-top .nav-logo-mobile {
+    display: block;
+  }
+}
+main nav.main-nav .nav-top .nav-main-menu .menu-list li {
+  /* 17px + 3px di bordo = 20px di padding di playlist*/
+  padding-left: 17px;
+  border-left: 3px solid transparent;
+}
+main nav.main-nav .nav-top .nav-main-menu .menu-list li.active {
+  border-left: 3px solid greenyellow;
+}
+main nav.main-nav .nav-top .nav-main-menu .menu-list li.active a{
+  color: white;
+}
+/* usiamo lineheight e vertical align per centrare le immagini */
+main nav.main-nav .nav-top .nav-main-menu .menu-list img {
+  height: 26px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+@media screen and (max-width: 600px) {
+  main nav.main-nav .nav-top .nav-main-menu .menu-list {
+    text-align: center;
+  }
+  main nav.main-nav .nav-top .nav-main-menu .menu-list li {
+    border: 0;
+    padding-left: 0;
+  }
+  main nav.main-nav .nav-top .nav-main-menu .menu-list li a span {
+    display: none;
+  }
+  main nav.main-nav .nav-top .nav-main-menu .menu-list li.active {
+    border: 0;
+  }
+  main nav.main-nav .nav-top .nav-main-menu .menu-list img {
+    margin: 0;
+  }
+}
+main nav.main-nav .nav-top .nav-playlist {
+  padding: 20px;
+  overflow: hidden;
+}
+@media screen and (max-width: 600px) {
+  main nav.main-nav .nav-top .nav-playlist {
+    display: none;
+  }
+}
+main nav.main-nav .nav-top .nav-playlist .menu-list{
+  /* la playlist si rimpicciolisce poi compare una scrollbar */
+  height: 80%;
+  overflow-y: auto;
+}
+main nav.main-nav .nav-top .nav-playlist h2 {
+  margin-bottom: 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+main nav.main-nav .nav-top .nav-playlist .add-playlist {
+  margin-bottom: 10px;
+  display: block;
+  font-size: 15px;
+  line-height: 37px;
+}
+main nav.main-nav .nav-top .nav-playlist .add-playlist span:before {
+  display: inline-block;
+  content: '+';
+  width: 37px;
+  height: 37px;
+  margin-right: 10px;
+  background-color: rgba(255, 255, 255, 0.6);
+  font-size: 35px;
+  text-align: center;
+  line-height: 37px;
+  vertical-align: middle;
+  color: black;
+}
+main nav.main-nav .nav-top .nav-playlist .add-playlist:hover span:before {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+/* usiamo flex per centrare in altezza */
+main nav.main-nav .nav-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 80px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+/* usiamo flex per centrare in altezza */
+main nav.main-nav .nav-bottom .app-download a,
+main nav.main-nav .nav-bottom .user {
+  display: flex;
+  align-items: center;
+}
+main nav.main-nav .nav-bottom .app-download {
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+main nav.main-nav .nav-bottom .app-download a {
+  font-size: 13px;
+}
+main nav.main-nav .nav-bottom .app-download img {
+  width: 15px;
+  margin-right: 10px;
+}
+@media screen and (max-width: 600px) {
+  main nav.main-nav .nav-bottom {
+    padding: 0;
+    align-items: center;
+  }
+  main nav.main-nav .nav-bottom .app-download {
+    text-align: center;
+    border: 0;
+    padding: 0;
+  }
+  main nav.main-nav .nav-bottom .app-download span{
+    display: none;
+  }
+  main nav.main-nav .nav-bottom .app-download img {
+    margin: 0;
+  }
+}
+main nav.main-nav .nav-bottom .user .user-avatar {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+  background: grey;
+  border-radius: 50%;
+  overflow: hidden;
+}
+main nav.main-nav .nav-bottom .user .user-avatar img{
+  width: 100%;
+}
+main nav.main-nav .nav-bottom .user .user-name {
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+}
+@media screen and (max-width: 600px) {
+  main nav.main-nav .nav-bottom .user .user-avatar {
+    margin-right: 0;
+  }
+  main nav.main-nav .nav-bottom .user .user-name {
+    display: none;
+  }
+}
+
+
+/* MAIN CONTENT */
+/* per il layout delle macroaree usiamo float e calc */
+main #content {
+  float: left;
+  width: calc(100% - 230px);
+  height: 100%;
+  /* con overflow il testo non può uscire dal container e facciamo comparire la scrollbar solo quando serve */
+  overflow-y: auto;
+  /* nascondiamo la scroll laterale per nascondere gli album in eccesso */
+  overflow-x: hidden;
+  background: #141922;
+}
+@media screen and (max-width: 600px) {
+  main #content {
+    width: calc(100% - 50px);
+  }
+}
+
+/* call to action */
+main #content .call-to-action {
+  /* ricordiamo che il fixed si posiziona sempre rispetto alla viewport */
+  position: fixed;
+  z-index: 1;
+  width: calc(100% - 230px);
+  height: 90px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.4);
+  text-align: right;
+}
+
+@media screen and (max-width: 600px) {
+  main #content .call-to-action {
+    width: calc(100% - 50px);
+  }
+}
+
+/* nav  */
+main #content .main-content-nav {
+  width: 100%;
+  margin-top: 90px;
+  text-align: center;
+}
+main #content .main-content-nav a {
+  position: relative;
+  padding-bottom: 5px;
+}
+main #content .main-content-nav a.active:after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  content: '';
+  display: block;
+  height: 2px;
+  width: 30px;
+  background: greenyellow;
+}
+
+/* covers */
+main #content .covers .covers-row > p{ 
+  margin-top: 10px;
+}
+main #content .covers .covers-row {
+  margin: 20px;
+}
+/* usiamo display flex per gestire le cover */
+main #content .covers .covers-list {
+  display: flex;
+  margin: 30px 0;
+}
+/* gestiamo le grandezze con calc e mediaquery */
+main #content .covers .covers-list .cover-item {
+  flex-shrink: 0;
+  width: calc(100% / 6 - 15px);
+  margin-right: 15px;
+  cursor: pointer;
+}
+@media screen and (max-width: 1100px) {
+  main #content .covers .covers-list .cover-item {
+    width: calc(100% / 4 - 10px);
+    margin-right: 10px;
+  }
+  /* inizialmente facciamo scivolare gli elementi sotto con wrap */
+  main #content .covers .covers-list {
+    flex-wrap: wrap;
+  }
+
+}
+@media screen and (max-width: 700px) {
+  main #content .covers .covers-list .cover-item {
+    width: calc(100% / 2 - 10px);
+    margin-right: 10px;
+  }
+
+}
+main #content .covers .covers-list .cover-item .cover-container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+}
+main #content .covers .covers-list .cover-item .cover-container .cover-layover{
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* allineo icona con flex */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 60px;
+}
+main #content .covers .covers-list .cover-item .cover-container .cover-layover i{
+  display: none;
+}
+main #content .covers .covers-list .cover-item:hover .cover-container .cover-layover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+main #content .covers .covers-list .cover-item:hover .cover-container .cover-layover i {
+  display: inline;
+}
+main #content .covers .covers-list .cover-item .cover-text{
+ text-align: center;
+}
+main #content .covers .covers-list .cover-item .cover-text h3{
+ font-size: 16px;
+ line-height: 16px;
+}
+main #content .covers .covers-list .cover-item .cover-container img{
+  max-width: 100%;
+}
+main #content .covers #popular .cover-item .cover-container img{
+  border-radius: 100%;
+}
+main #content .covers #popular .cover-item .cover-container {
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+/* FOOTER */
+/* footer ha un'altezza fissa */
+/* questa sezione è tutta in flex */
+footer {
+  height: 90px;
+  background: #282828;
+}
+footer #player {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* player album */
+footer #player .player-album, 
+footer #player .player-audio {
+  width: 230px;
+  height: 100%;
+  padding: 10px;
+}
+footer #player .player-album {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+footer #player .player-album .player-album-cover {
+  width: 20%;
+}
+footer #player .player-album .player-album-cover img {
+  width: 100%;
+}
+footer #player .player-album .player-album-title {
+  width: 50%;
+  padding-left: 10px;
+}
+footer #player .player-album .player-album-title a:hover {
+  text-decoration: underline;
+  color: rgba(255, 255, 255, 1);
+}
+footer #player .player-album .player-album-title h2 {
+  font-size: 12px;
+  line-height: 12px;
+}
+footer #player .player-album .player-album-title h2 a{
+  color: rgba(255, 255, 255, 1);
+}
+footer #player .player-album .player-album-title p {
+  font-size: 10px;
+}
+footer #player .player-album .player-icons i{
+  margin-left: 10px;
+}
+
+/* player controller */
+footer #player .player-controller {
+  width: 40%;
+  height: 100%;
+}
+
+/* player controller icons */
+footer #player .player-controller .player-controller-icons {
+  height: 60%;
+}
+footer #player .player-controller .player-controller-icons ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+footer #player .player-controller .player-controller-icons i{
+  margin: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+footer #player .player-controller .player-controller-icons .player-controller-play-ico i{
+  width: 50px;
+  font-size: 30px;
+  text-align: center;
+}
+footer #player .player-controller .player-controller-icons .player-controller-play-ico:hover i{
+  font-size: 32px;
+}
+/* player controller time*/
+footer #player .player-controller .player-controller-time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+footer #player .player-controller .player-controller-time .player-controller-time-min {
+  width: 10%;
+  margin: 0 10px;
+  font-size: 10px;
+  text-align: center;
+}
+
+/* bar riutilizzata anche in audio*/
+footer #player .player-bar {
+  width: 80%;
+  height: 4px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+footer #player .player-bar .controller-elapsed {
+  position: relative;
+  height: 100%;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+footer #player .player-bar .controller-elapsed.perc-20 {
+  width: 20%;
+}
+footer #player .player-bar:hover .controller-elapsed {
+  background-color: greenyellow;
+}
+footer #player .player-bar:hover .controller-elapsed .controller-elapsed-point {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  display: block;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 1);
+  
+}
+
+/* audio */
+footer #player .player-audio ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+footer #player .player-audio .player-audio-volume {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
